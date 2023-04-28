@@ -25,19 +25,20 @@
 ```
 2. `Обновляем кэш apt`
 
+```
     apt update
+```
 
 3. `Устанавливаем пакет`
 
+```
     apt install haproxy=2.6.\*
-
+```
 4. `Запускаем сервис`
 
 ```
     systemctl start haproxy
-
     systemctl enable haproxy
-
     systemctl status haproxy
 ```
 
@@ -49,25 +50,29 @@
 
 1. `Обновляем кэш apt`
 
+```
     apt update
+```
 
 2. `Ставим пакет `
 
+```
     apt install nginx
+```
 
 3. `Запускаем сервис`
 
 ```
     systemctl start  nginx
-
     systemctl enable  nginx
-
     systemctl status nginx
 ```
 
 4. `Проверяем конфиг на ошибки `
 
+```
     sudo nginx -t
+```
 
 -![Скриншот Nginx](./img/4_1.jpg)
 
@@ -90,11 +95,15 @@
 
 2. `Проверяем`
 
+```
     sudo nginx -t
+```
 
 3. `Перезагружаем сервис `
 
+```
     systemctl reload nginx
+```
 
 -![Скриншот Nginx_8088](./img/5_1.jpg)
 
