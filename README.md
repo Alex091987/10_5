@@ -15,13 +15,14 @@
 
 1. `Добавляем репозиторий и GPG-ключ`
 
+```
     curl https://haproxy.debian.net/bernat.debian.org.gpg \
-      | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
+    | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
 
     echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
-      http://haproxy.debian.net bullseye-backports-2.6 main \
-      > /etc/apt/sources.list.d/haproxy.list
-
+    http://haproxy.debian.net bullseye-backports-2.6 main \
+    > /etc/apt/sources.list.d/haproxy.list
+```
 2. `Обновляем кэш apt`
 
     apt update
@@ -32,10 +33,13 @@
 
 4. `Запускаем сервис`
 
+```
     systemctl start haproxy
-    systemctl enable haproxy
-    systemctl status haproxy
 
+    systemctl enable haproxy
+
+    systemctl status haproxy
+```
 
 
 -![Скриншот Haproxy](./img/3_1.jpg)
@@ -53,9 +57,13 @@
 
 3. `Запускаем сервис`
 
+```
     systemctl start  nginx
+
     systemctl enable  nginx
+
     systemctl status nginx
+```
 
 4. `Проверяем конфиг на ошибки `
 
@@ -69,6 +77,7 @@
 
 1. `Правим файл /etc/nginx/sites-enabled/default`
 
+```
     server {
             listen 8088;
             listen [::]:8088;
@@ -77,6 +86,7 @@
 
             }
     }
+```
 
 2. `Проверяем`
 
@@ -92,6 +102,7 @@
 
 1. `Правим конфигурационный файл`
 
+```
     nano /etc/haproxy/haproxy.cfg
 
 
@@ -107,5 +118,6 @@
         acl p_root path -i /
         http-request set-path /ping if p_root
         server node2 192.168.1.101:8088
+```
 
 -![Скриншот HAproxy](./img/6_1.jpg)
